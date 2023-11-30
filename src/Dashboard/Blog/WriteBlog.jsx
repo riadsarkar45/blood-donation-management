@@ -91,7 +91,6 @@ const WriteBlog = () => {
 
                         ></JoditEditor>
                     </div>
-                    {/* <textarea className="w-full mt-3 textarea textarea-bordered" placeholder="Bio"></textarea> */}
                     <div className="mt-4">
                         {
                             blocked?.map(user => {
