@@ -30,9 +30,6 @@ const Registraion = () => {
     const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
     const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
     const navigate = useNavigate();
-    // const [age, setAge] = useState('');
-    // const [districts, setDistrict] = useState('')
-    // const [bloodGroupe, setBloodGroup] = useState('')
     const [password, setPassword] = useState('');
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
