@@ -5,8 +5,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import { Link, useNavigate } from "react-router-dom";
 
 import Grid from '@mui/material/Grid';
@@ -19,7 +17,6 @@ import Districts from "../Hooks/Districts";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import Upozillas from "../Hooks/Upozillas";
 import { LinkSharp } from "@mui/icons-material";
-import { Input } from "postcss";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
 const Registraion = () => {
