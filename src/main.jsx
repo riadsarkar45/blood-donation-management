@@ -27,12 +27,13 @@ import UpdateDonation from './Dashboard/CreatDonation/UpdateDonation.jsx'
 import AddNewReq from './Dashboard/AddNewReq/AddNewReq.jsx'
 import Blog from './components/Pages/Blogs/Blog.jsx'
 import { HelmetProvider } from 'react-helmet-async'
-
+import ErrorPage from "./components/Pages/ErrorPage.jsx"
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Menu></Menu>,
+    errorElement: <ErrorPage></ErrorPage>, 
     children: [
       {
         path: "/",
