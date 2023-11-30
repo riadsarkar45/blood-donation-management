@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardContent, TableCell, TableRow, Typography
 import { Link } from "react-router-dom";
 
 const SearchResult = ({ data, index }) => {
-    const { name, email, bloodGroup, recipentName, district, upozila, _id, fullAddress, date, time, location } = data;
+    const { email, bloodGroup, recipentName, district, upozila, _id, fullAddress, date, time, location } = data;
     return (
         <TableRow
             key={recipentName}
