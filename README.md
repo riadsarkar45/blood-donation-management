@@ -1,8 +1,12 @@
-# React + Vite
+# Live Link
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Blood Donation Management Site
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Some Features
+    => Responsive Client
+    => User can raised hand to the needed person via confirming donation rerquest
+    => User can can make blood Donation REQUEST
+    => User can write ARTICLE/BLOG about something they want
+
+
