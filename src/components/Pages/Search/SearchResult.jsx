@@ -1,4 +1,4 @@
-import { TableCell, TableRow, Typography } from "@mui/material";
+import { TableCell, TableRow } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const SearchResult = ({ data, index }) => {
