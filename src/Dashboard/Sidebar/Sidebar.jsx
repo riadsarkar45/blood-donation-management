@@ -36,7 +36,7 @@ const Sidebar = () => {
                                     user ? (
                                         <Link to={`/dashboard/profile`}>
                                             <div className="flex gap-3">
-                                                
+
                                                 <img className="w-[10%] rounded-lg h-6" src={user?.photoURL} alt="" />
                                                 {
                                                     user?.displayName
@@ -145,6 +145,17 @@ const Sidebar = () => {
                                 ) : (
 
                                     <>
+
+                                        <div className="collapse collapse-arrow join-item border border-base-300">
+                                            <input type="radio" name="my-accordion-4" checked="checked" />
+                                            <div className="collapse-title text-xl font-medium">
+                                                Home
+                                            </div>
+                                            <div className="collapse-content">
+                                                <li> <Link to="/dashboard">Home</Link> </li>
+
+                                            </div>
+                                        </div>
                                         <div className="collapse collapse-arrow join-item border border-base-300">
                                             <input type="radio" name="my-accordion-4" />
                                             <div className="collapse-title text-xl font-medium">

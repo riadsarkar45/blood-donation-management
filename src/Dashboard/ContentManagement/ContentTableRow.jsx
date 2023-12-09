@@ -59,7 +59,6 @@ const ContentTableRow = ({ cont, updateBlogData, handleDeleteBlog }) => {
                                             </>
                                         )
                                     }
-                                    <li><a>Edit</a></li>
                                     <li onClick={() => handleDeleteBlog(_id)}><a>Delete</a></li>
                                 </ul>
                             </div>

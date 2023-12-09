@@ -17,7 +17,7 @@ const WriteBlog = () => {
     const { user } = useContext(AuthContext);
     const [blocked, setBlocked] = useState([]);
 
-    const { data: users = [], refetch } = useQuery({
+    const { data: users = [],  } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/users`);

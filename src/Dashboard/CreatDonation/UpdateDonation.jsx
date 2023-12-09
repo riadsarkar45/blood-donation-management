@@ -9,12 +9,12 @@ import { Helmet } from "react-helmet";
 
 const UpdateDonation = () => {
     const loader = useLoaderData();
-    const { _id, name, email, recipentName, district, upozila, location, fullAddress, date, time, bloodGroup, status } = loader;
+    const { _id, name, email, recipentName, district, upozila, location, fullAddress, date, time, bloodGroup, status, desc } = loader;
 
     const { user } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
-    const districts = Districts();
-    const upazila = Upozillas();
+    const [districts] = Districts();
+    const [upazillas] = Upozillas();
     const handleUpdateRequest = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -28,8 +28,9 @@ const UpdateDonation = () => {
         const date = form.date.value;
         const time = form.time.value;
         const bloodGroup = form.bloodGroup.value;
-        const status = 'inProgress'
-        const data = { name, email, recipentName, district, upozila, location, fullAddress, date, time, bloodGroup, status }
+        const status = 'pending';
+        const desc = form.desc.value;
+        const data = { name, email, recipentName, district, upozila, location, fullAddress, date, time, bloodGroup, status, desc }
         console.log(data)
         axiosSecure.patch(`/edit-donation/${_id}`, data)
             .then(res => {
@@ -61,7 +62,7 @@ const UpdateDonation = () => {
                     <select name="upozila" defaultValue="default" className="select select-bordered w-[33rem]">
                         <option disabled value="default">Recipent Upozila</option>
                         {
-                            upazila?.map(dis => <option key={dis._id}>{dis.name}</option>)
+                            upazillas?.map(dis => <option key={dis._id}>{dis.name}</option>)
                         }
                     </select>
                     <input name="location" defaultValue={location} type="text" placeholder="Hospital Name" className="input input-bordered w-[33rem]" />
@@ -79,7 +80,7 @@ const UpdateDonation = () => {
                         <option>O+</option>
                         <option>O-</option>
                     </select>
-                    <textarea name="desc" defaultValue={'fake text'} className="textarea textarea-bordered" placeholder="Message to the donors"></textarea>
+                    <textarea name="desc" defaultValue={desc} className="textarea textarea-bordered" placeholder="Message to the donors"></textarea>
                 </div>
                 <button className="btn btn-md btn-outline btn-primary w-full mt-5">Submit</button>
             </form>

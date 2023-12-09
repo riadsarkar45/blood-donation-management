@@ -65,6 +65,12 @@ function Header(props) {
                             <ListItemButton>
                                 <Link to="/dashboard">Dashboard</Link>
                             </ListItemButton>
+                            
+                            <ListItemButton>
+                                <Link onClick={handleLogout}>LogOut</Link>
+                            </ListItemButton>
+
+                            
                         </>
                     ) : (
                         <>

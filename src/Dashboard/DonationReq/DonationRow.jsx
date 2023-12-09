@@ -2,6 +2,7 @@ import { TableCell, TableRow } from "@mui/material";
 import { FaGripVertical, FaLock, FaTrash, FaCheck, FaDharmachakra, FaRegWindowClose } from "react-icons/fa";
 import useAdmin from "../../components/Hooks/useAdmin";
 import useVolunteer from "../../components/Hooks/useVolunteer";
+import { Link } from "react-router-dom";
 
 const DonationRow = ({ rows, index, handleDonationStatus, handleDelete }) => {
     const [isAdmin] = useAdmin();
@@ -47,65 +48,44 @@ const DonationRow = ({ rows, index, handleDonationStatus, handleDelete }) => {
                     <summary className="btn btn-sm"><FaGripVertical /></summary>
                     <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                         {/* admin actions */}
+
                         {
-                            isAdmin ? (
+                            status === 'inProgress' ? (
+                                <>
+                                    <li onClick={() => handleDonationStatus("done", _id)}><a><FaCheck /> Done</a></li>
+                                    <li onClick={() => handleDonationStatus("canceled", _id)}><a><FaRegWindowClose /> Cancel</a></li>
+                                    <li onClick={() => handleDelete(_id)}><a><FaTrash></FaTrash>Delete</a></li>
+                                    <li><Link to={`dashboard/edit-donation/${_id}`}>Edit</Link></li>
 
-                                status === 'inProgress' ? (
-                                    <>
-                                        <li onClick={() => handleDonationStatus("done", _id)}><a><FaCheck /> Done</a></li>
-                                        <li onClick={() => handleDonationStatus("canceled", _id)}><a><FaRegWindowClose /> Cancel</a></li>
-                                        <li onClick={() => handleDelete(_id)}><a><FaTrash></FaTrash>Delete</a></li>
-                                    </>
-                                ) : status === 'canceled' ? (
-                                    <>
-
-                                        <li onClick={() => handleDonationStatus("inProgress", _id)}><a><FaDharmachakra /> In Progress</a></li>
-                                        <li onClick={() => handleDonationStatus("done", _id)}><a><FaCheck /> Done</a></li>
-                                        <li onClick={() => handleDelete(_id)}><a><FaTrash></FaTrash>Delete</a></li>
-                                    </>
-                                ) : status === 'pending' ? (
-                                    <>
-
-                                        <li onClick={() => handleDonationStatus("inProgress", _id)}><a><FaDharmachakra /> In Progress</a></li>
-                                        <li onClick={() => handleDonationStatus("done", _id)}><a><FaCheck /> Done</a></li>
-                                        <li onClick={() => handleDonationStatus("canceled", _id)}><a><FaRegWindowClose /> Cancel</a></li>
-
-                                    </>
-                                ) : (
-                                    <>
-                                        <li onClick={() => handleDelete(_id)}><a><FaTrash></FaTrash>Delete</a></li>
-
-                                    </>
-                                )
-
-                            ) : isVolunteer ? (
-                                status === 'inProgress' ? (
-                                    <>
-                                        <li onClick={() => handleDonationStatus("done", _id)}><a><FaCheck /> Done</a></li>
-                                        <li onClick={() => handleDonationStatus("canceled", _id)}><a><FaRegWindowClose /> Cancel</a></li>
-                                    </>
-                                ) : status === 'canceled' ? (
-                                    <>
-
-                                        <li onClick={() => handleDonationStatus("inProgress", _id)}><a><FaDharmachakra /> In Progress</a></li>
-                                        <li onClick={() => handleDonationStatus("done", _id)}><a><FaCheck /> Done</a></li>
-                                    </>
-                                ) : status === 'pending' ? (
-                                    <>
-
-                                        <li onClick={() => handleDonationStatus("inProgress", _id)}><a><FaDharmachakra /> In Progress</a></li>
-                                        <li onClick={() => handleDonationStatus("done", _id)}><a><FaCheck /> Done</a></li>
-                                    </>
-                                ) : null
-                            ) : (
+                                </>
+                            ) : status === 'canceled' ? (
                                 <>
 
                                     <li onClick={() => handleDonationStatus("inProgress", _id)}><a><FaDharmachakra /> In Progress</a></li>
                                     <li onClick={() => handleDonationStatus("done", _id)}><a><FaCheck /> Done</a></li>
+                                    <li onClick={() => handleDelete(_id)}><a><FaTrash></FaTrash>Delete</a></li>
+                                    <li><Link to={`/dashboard/edit-donation/${_id}`}>Edit</Link></li>
+
+                                </>
+                            ) : status === 'pending' ? (
+                                <>
+
+                                    <li onClick={() => handleDonationStatus("inProgress", _id)}><a><FaDharmachakra /> In Progress</a></li>
+                                    <li onClick={() => handleDonationStatus("done", _id)}><a><FaCheck /> Done</a></li>
+                                    <li onClick={() => handleDonationStatus("canceled", _id)}><a><FaRegWindowClose /> Cancel</a></li>
+                                    <li><Link to={`/dashboard/edit-donation/${_id}`}>Edit</Link></li>
+
+
+                                </>
+                            ) : (
+                                <>
+                                    <li onClick={() => handleDelete(_id)}><a><FaTrash></FaTrash>Delete</a></li>
+                                    <li><Link to={`/dashboard/edit-donation/${_id}`}>Edit</Link></li>
 
                                 </>
                             )
                         }
+
 
                     </ul>
                 </details>
